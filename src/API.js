@@ -2,7 +2,7 @@ const fetchOptions = {
   method: "GET",
   headers: {
     "x-rapidapi-host": "realty-in-us.p.rapidapi.com",
-    "x-rapidapi-key": "c18dcc53e4msh27211998967b56dp1473bdjsnedeb976c1b23",
+    "x-rapidapi-key": process.env.REACT_APP_API_KEY,
   },
 };
 
