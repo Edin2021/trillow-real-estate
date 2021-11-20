@@ -1,0 +1,36 @@
+// colors
+$clr-primary: #edf2f8;
+$clr-secondary: #3f6292;
+$clr-accent-1: #3097f6;
+$clr-accent-2: #57b894;
+$clr-text-dark: black;
+$clr-text-light: white;
+$clr-red-light: #ff8d8d;
+$clr-red-dark: #751313;
+$clr-green-light: #57b894;
+
+// font sizes
+$heading-xlarge: 4rem;
+$heading-large: 3rem;
+$heading-medium: 2.25rem;
+$heading-small: 1.5rem;
+$heading-xsmall: 1.25rem;
+
+$text-xlarge: 1.5rem;
+$text-large: 1.25rem;
+$text-medium: 1rem;
+$text-small: 0.9rem;
+$text-xsmall: 0.8rem;
+
+// other variables
+$pageWidth: clamp(270px, 90%, 1200px);
+$radius-xlarge: 2rem;
+$radius-large: 1rem;
+$radius-medium: 0.5rem;
+$radius-small: 0.25rem;
+
+// breakpoints (max-width)
+$bp-desktop: 1200px;
+$bp-laptop: 992px;
+$bp-tablet: 768px;
+$bp-phone: 600px;

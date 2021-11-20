@@ -1,0 +1,123 @@
+@use "../util" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: $clr-text-dark;
+  background-color: $clr-primary;
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+a,
+a:visited,
+a:active {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  line-height: 100%;
+}
+
+button {
+  display: flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#root {
+  @include flexCenter(column);
+  width: 100%;
+  min-height: 100vh;
+  color: $clr-text-dark;
+}
+
+// accessibility for icons
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  position: absolute;
+  height: 1px;
+  width: 1px;
+}
+
+main {
+  @include flexCenter(column);
+  width: $pageWidth;
+  gap: 7rem;
+  padding: 7rem 0;
+  section {
+    gap: 4rem;
+  }
+  h2 {
+    font-size: $heading-xsmall;
+    font-weight: 500;
+    text-align: center;
+    line-height: 130%;
+  }
+}
+
+hr.seperator-line {
+  border-top: 1px solid $clr-secondary;
+  width: 100%;
+  opacity: 0.3;
+}
+
+select {
+  width: 100%;
+  padding: 0.5rem 0;
+  font-size: $text-small;
+  text-transform: capitalize;
+  text-align: center;
+  border: none;
+  border-radius: $radius-small;
+  color: $clr-secondary;
+  font-weight: 500;
+  outline: none;
+}
+
+.loader {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 5;
+  border: 0.5rem solid white;
+  border-left: 0.5rem solid $clr-accent-1;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  animation: spinner 1s infinite linear;
+}
+
+@keyframes spinner {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

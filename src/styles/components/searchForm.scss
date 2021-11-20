@@ -1,0 +1,183 @@
+@use "../util" as *;
+
+.form-wrapper {
+  width: clamp(270px, 90%, 1400px);
+}
+
+.search-form {
+  display: flex;
+  gap: 1rem;
+  margin-top: 4rem;
+  label {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: $radius-small;
+    position: relative;
+    text-transform: capitalize;
+
+    button {
+      @include button($text-small, white);
+      color: $clr-secondary;
+      position: relative;
+      width: 100%;
+    }
+
+    .dropdown-btn {
+      .icon {
+        display: flex;
+        position: absolute;
+        font-size: $text-xlarge;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+      }
+    }
+    .search-icon {
+      display: flex;
+      position: absolute;
+      font-size: $text-xlarge;
+      color: $clr-secondary;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0.5rem;
+      z-index: 5;
+    }
+    input {
+      padding: 0.5rem 0;
+      padding-left: 2.25rem;
+      border: none;
+      border-radius: $radius-small;
+      outline: none;
+      border: 1px solid rgb(63, 98, 146, 0.6);
+      transition: box-shadow 0.2s ease;
+      caret-color: $clr-secondary;
+      font-size: $text-small;
+      position: relative;
+      &:focus {
+        box-shadow: 0 0 3px $clr-accent-1;
+      }
+      &::placeholder {
+        color: $clr-secondary;
+        font-weight: 500;
+        opacity: 0.7;
+      }
+    }
+    input[type="search"] {
+      border: 1px solid transparent;
+    }
+    .input-window {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      min-width: 17.5rem;
+      position: absolute;
+      padding: 1rem;
+      border-radius: $radius-small;
+      background-color: white;
+      bottom: 0;
+      left: 0;
+      transform: translate(0, calc(100% + 0.5rem));
+      box-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+      z-index: -5;
+      visibility: hidden;
+      opacity: 0;
+      @include transition(opacity);
+      .notch {
+        position: absolute;
+        left: 2rem;
+        top: -0.5rem;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+
+        border-bottom: 10px solid white;
+      }
+      label {
+        input {
+          flex: 3;
+          width: 100%;
+          padding-left: 1rem;
+        }
+        span {
+          flex: 1;
+        }
+      }
+      button {
+        @include button($text-small, $clr-accent-1);
+        justify-content: center;
+      }
+    }
+    &.show .input-window {
+      z-index: 6;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  & > button {
+    @include button($text-small, $clr-accent-1);
+    justify-content: center;
+    align-items: center;
+  }
+  .city-list {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    box-shadow: 0 0 3px rgb(0, 0, 0, 0.5);
+    border-radius: $radius-small;
+    background-color: white;
+    max-height: 30vh;
+    overflow: auto;
+    visibility: hidden;
+    z-index: -5;
+    opacity: 0;
+    li {
+      list-style-type: none;
+      text-align: center;
+      padding: 0.25rem 0;
+      font-size: $text-small;
+      color: $clr-secondary;
+      outline: none;
+      &:hover,
+      &:focus {
+        background-color: $clr-accent-1;
+        color: white;
+      }
+    }
+  }
+  .show .city-list {
+    visibility: visible;
+    z-index: 6;
+    opacity: 1;
+  }
+}
+
+@media (max-width: $bp-laptop) {
+  .search-form {
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 4rem;
+    max-width: 35rem;
+    gap: 1.5rem;
+    label,
+    button {
+      justify-content: center;
+    }
+    label input {
+      width: 100%;
+    }
+    label {
+      .input-window {
+        left: 50%;
+        transform: translate(-50%, calc(100% + 0.5rem));
+        .notch {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+@use "../util/" as *;
+
+.listing-pictures-wrapper {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  height: 51.5rem;
+  outline: none;
+  // height: 100%;
+  overflow-y: auto;
+  .displayed {
+    min-height: 500px;
+    height: 500px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $radius-small;
+      cursor: pointer;
+    }
+    .image-count {
+      position: absolute;
+      left: 50%;
+      bottom: 0.25rem;
+      transform: translateX(-50%);
+      color: $clr-text-light;
+      background-color: rgb(0, 0, 0, 0.6);
+      padding: 0.5rem 1rem;
+      border-radius: $radius-small;
+    }
+    .prev-btn,
+    .next-btn,
+    .expand-btn {
+      @include button($text-xlarge, rgb(0, 0, 0, 0.6));
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .prev-btn {
+      left: 0.25rem;
+    }
+    .next-btn {
+      right: 0.25rem;
+    }
+    & .expand-btn {
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: $heading-large;
+      height: 5rem;
+      width: 5rem;
+      z-index: -5;
+      visibility: hidden;
+      opacity: 0;
+    }
+    & img:hover ~ .expand-btn {
+      z-index: 5;
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+  .track {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    overflow-x: hidden;
+    .img-wrapper {
+      height: 125px;
+      border-radius: $radius-small;
+      overflow: hidden;
+      border: 1px solid transparent;
+      transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
+      &.is-selected {
+        border: 1px solid $clr-accent-1;
+        box-shadow: 0 0 3px 1px $clr-accent-1;
+        transform: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-desktop) {
+  .listing-pictures-wrapper {
+    margin-top: 1.5rem;
+    overflow-y: unset;
+    .displayed {
+      min-height: unset;
+      flex: 3 5%;
+      min-height: 500px;
+      max-height: 500px;
+    }
+    .track {
+      display: none;
+    }
+  }
+  .expand-pictures {
+    .track {
+      display: grid;
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .listing-pictures-wrapper {
+    height: 100%;
+    .displayed {
+      min-height: 40vh;
+      max-height: 40vh;
+    }
+    .track {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      .img-wrapper {
+        height: 100px;
+      }
+    }
+  }
+}

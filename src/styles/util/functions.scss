@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin button($font-size, $bgc) {
+  padding: 0.5rem 0.75rem;
+  color: $clr-text-light;
+  background-color: $bgc;
+  font-weight: 500;
+  font-size: $font-size;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  border-radius: $radius-small;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+@mixin transition($type) {
+  transition: $type 0.3s ease;
+}

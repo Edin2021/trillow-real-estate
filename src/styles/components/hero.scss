@@ -1,0 +1,41 @@
+@use "../util" as *;
+
+.hero {
+  @include flexCenter(column);
+  gap: 1rem;
+  width: 100%;
+  height: calc(100vh - 2rem);
+  background-image: url("../../images/pictures/hero-1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  .title {
+    font-size: $heading-xlarge;
+    letter-spacing: 0.25rem;
+    text-shadow: 0 4px 3px rgb(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  .sub-title {
+    font-size: $text-xlarge;
+    font-weight: 600;
+    text-shadow: 0 0 1px black;
+    text-align: center;
+  }
+  .browse-homes-btn a {
+    @include button($text-large, $clr-accent-1);
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .hero {
+    .title {
+      font-size: 7vw;
+      padding: 0 1rem;
+    }
+    .sub-title {
+      font-size: 4.5vw;
+      padding: 0 1rem;
+    }
+  }
+}

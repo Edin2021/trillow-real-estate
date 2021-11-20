@@ -1,0 +1,20 @@
+@use "../util" as *;
+
+.logo {
+  @include flexCenter(row);
+  font-size: $heading-medium;
+  font-weight: 700 !important;
+  letter-spacing: 1px;
+  color: $clr-secondary !important;
+  height: max-content;
+  img {
+    width: 2rem;
+  }
+  & > span {
+    font-size: $heading-medium;
+  }
+  & > span > span {
+    font-size: $text-xsmall;
+    opacity: 0.5;
+  }
+}

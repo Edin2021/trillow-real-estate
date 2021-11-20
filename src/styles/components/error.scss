@@ -1,0 +1,16 @@
+@use "../util" as *;
+
+.error-page {
+  @include flexCenter(column);
+  gap: 2rem;
+  img {
+    width: clamp(270px, 95%, 600px);
+  }
+  h1 {
+    font-size: $heading-medium;
+    color: $clr-secondary;
+  }
+  button a {
+    @include button($text-medium, $clr-accent-1);
+  }
+}

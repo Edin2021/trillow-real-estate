@@ -1,0 +1,61 @@
+@use "../util" as *;
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  button {
+    height: 2.5rem;
+    width: 2.5rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .prev-btn,
+  .next-btn {
+    @include transition(opacity);
+    .icon {
+      display: flex;
+      font-size: $text-xlarge;
+      color: $clr-accent-1;
+    }
+    &:hover {
+      opacity: 0.7;
+    }
+    &.hide {
+      visibility: none;
+      opacity: 0;
+      z-index: -5;
+    }
+  }
+  .pages {
+    display: flex;
+    gap: 0.25rem;
+    button {
+      @include button($text-large, white);
+      color: $clr-text-dark;
+      border-radius: 50%;
+      transition: color 0.3s ease, background-color 0.3s ease,
+        transform 0.3s ease, opacity 0.3s ease;
+      &.active {
+        background-color: $clr-secondary;
+        color: white;
+        transform: scale(1.085);
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .pagination {
+    button {
+      width: 2rem;
+      height: 2rem;
+    }
+    .pages button {
+      font-size: $text-medium;
+    }
+  }
+}

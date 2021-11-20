@@ -1,0 +1,133 @@
+@use "../util" as *;
+
+footer {
+  background-color: white;
+  @include flexCenter(column);
+  width: 100%;
+  .footer-center {
+    @include flexCenter(column);
+    width: $pageWidth;
+    gap: 2rem;
+    padding-top: 4rem;
+    & > a,
+    p > a {
+      color: $clr-accent-1;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    & > a {
+      display: flex;
+      align-items: center;
+      span {
+        display: flex;
+      }
+    }
+    & > img {
+      width: 100%;
+    }
+  }
+  .dropdown-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    button {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: $text-medium;
+      font-weight: 500;
+      span {
+        display: flex;
+        color: $clr-accent-1;
+        font-size: $text-xlarge;
+      }
+    }
+  }
+  p {
+    max-width: 125ch;
+    text-align: center;
+    font-size: $text-xsmall;
+    line-height: 160%;
+  }
+
+  .regular-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 2rem;
+    a {
+      padding: 0.25rem 1rem;
+      font-size: $text-small;
+      text-transform: capitalize;
+      color: $clr-text-dark;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  aside {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: $text-xsmall;
+    .media-links {
+      display: flex;
+      align-items: flex-end;
+      a {
+        font-size: $text-xlarge;
+        padding: 0.25rem;
+        padding-bottom: 0;
+        display: flex;
+        @include transition(opacity);
+        &:hover {
+          opacity: 0.7;
+        }
+        // facebook
+        &:nth-child(1) {
+          color: $clr-secondary;
+        }
+        // instagram
+        &:nth-child(2) {
+          color: #fbbebe;
+        }
+        // tiktok
+        &:nth-child(3) {
+          color: black;
+        }
+        // twitter
+        &:nth-child(4) {
+          color: $clr-accent-1;
+        }
+      }
+    }
+    .copyright {
+      display: flex;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  footer {
+    .dropdown-links {
+      flex-direction: column;
+      gap: 1.5rem;
+      button {
+        justify-content: space-between;
+      }
+    }
+    .regular-links {
+      a {
+        padding: 0.75rem;
+      }
+    }
+    .footer-center > a {
+      text-align: center;
+    }
+    aside {
+      flex-direction: column;
+    }
+  }
+}

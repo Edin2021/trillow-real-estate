@@ -1,0 +1,126 @@
+@use "../util" as *;
+
+.hero-renters {
+  @include flexCenter(row);
+  width: 100%;
+  height: 60vh;
+  background-image: url("../../images/pictures/hero-2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  .hero-center {
+    width: $pageWidth;
+    color: $clr-text-light;
+    z-index: 3;
+    .title {
+      font-size: $heading-medium;
+      margin-bottom: 1.5rem;
+      max-width: 20ch;
+    }
+    .sub-title {
+      font-size: $text-xlarge;
+      font-weight: 500;
+      max-width: 40ch;
+    }
+  }
+  .bcg-blur-renters {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $clr-secondary;
+    opacity: 0.65;
+    z-index: 2;
+  }
+}
+
+.cards-renters {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 4rem;
+  position: relative;
+  margin-top: -11rem;
+  z-index: 3;
+  article {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem;
+    border-radius: $radius-small;
+    background-color: white;
+    a {
+      color: $clr-accent-1;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      @include transition(opacity);
+
+      span {
+        @include transition(padding);
+      }
+      &:hover {
+        opacity: 0.7;
+        span {
+          padding-left: 0.25rem;
+        }
+      }
+    }
+    .card-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      p {
+        line-height: 140%;
+      }
+
+      & > a {
+        margin-bottom: 0;
+        margin-top: auto;
+
+        span {
+          display: flex;
+          font-size: $text-xlarge;
+        }
+      }
+    }
+  }
+  img {
+    width: 110px;
+  }
+  & + section {
+    @include flexCenter(column);
+    gap: 1.5rem;
+    text-align: center;
+    h2 {
+      font-size: $heading-medium;
+    }
+    p {
+      font-size: $text-large;
+      font-weight: 500;
+    }
+    button a {
+      @include button($text-large, $clr-accent-1);
+    }
+  }
+}
+
+@media (max-width: $bp-phone) {
+  .hero-renters {
+    .hero-center {
+      .title {
+        font-size: 9vw;
+      }
+      .sub-title {
+        font-size: 4.5vw;
+      }
+    }
+  }
+  .cards-renters {
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    article {
+      flex-direction: column;
+    }
+  }
+}

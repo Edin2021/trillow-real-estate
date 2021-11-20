@@ -1,0 +1,21 @@
+@use "../util" as *;
+
+.sort-label {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 0;
+  margin-right: auto;
+  span {
+    flex: 1;
+    min-width: max-content;
+    font-size: $text-small;
+    color: $clr-secondary;
+    font-weight: 500;
+  }
+  select {
+    flex: 1;
+    min-width: max-content;
+  }
+}
