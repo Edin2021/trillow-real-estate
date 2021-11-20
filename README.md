@@ -6,4 +6,4 @@ This is a real estate website based in the US, where users can search for homes 
 
 ## API used
 
-## [Realty in US](https://rapidapi.com/apidojo/api/realty-in-us/)
+### [Realty in US](https://rapidapi.com/apidojo/api/realty-in-us/)
