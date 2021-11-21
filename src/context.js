@@ -153,8 +153,6 @@ export default function AppProvider({ children }) {
     setListings([...handleSort(sortParam, listings)]);
   }, [sortParam]);
 
-  console.log(process.env);
-
   return (
     <AppContext.Provider
       value={{
