@@ -17,6 +17,7 @@ function SearchForm() {
     formState: { errors },
   } = useForm();
 
+  // Setting the search param "for" based on the url path
   useEffect(() => {
     const currPath = window.location.pathname.split("/").pop();
     if (currPath === "for-rent") {
@@ -41,6 +42,7 @@ function SearchForm() {
     priceBtnRef.current.classList.remove("show");
   };
 
+  // Handle close custom pop up window for price, baths/beds and search autocomplete.
   useEffect(() => {
     let handler = (e) => {
       if (!bedsBathsBtnRef.current.contains(e.target)) {

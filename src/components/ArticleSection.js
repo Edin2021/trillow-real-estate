@@ -43,7 +43,6 @@ function ArticleSection() {
       <div className="wrapper">
         <article>
           <h3 className="title">Take Us With You</h3>
-          {/* Add link to domain */}
           <p>
             Keep Trillow.com in the palm of your hand throughout your rental
             journey.

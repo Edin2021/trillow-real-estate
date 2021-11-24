@@ -15,7 +15,6 @@ export default function AppProvider({ children }) {
   const [sortParam, setSortParam] = useState("newest");
   const [pages, setPages] = useState([]);
   const [currPage, setCurrPage] = useState(0);
-  // const [params, setParams] = useState(paramsPlaceholder);
 
   const toggleMenu = () => {
     setShowMenu((prevState) => !prevState);
@@ -124,6 +123,7 @@ export default function AppProvider({ children }) {
     }
   };
 
+  // setup pagination array when loading data
   useEffect(() => {
     setCurrPage((prevPage) => 0);
     const newArray = [];
@@ -141,6 +141,7 @@ export default function AppProvider({ children }) {
     }
   }, [listings]);
 
+  // Sort page based on param set when changing page
   useEffect(() => {
     if (pages.length) {
       const page = pages[currPage];

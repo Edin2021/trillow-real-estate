@@ -135,11 +135,14 @@
     h4 {
       margin-bottom: 0.5rem;
     }
+  }
+  .overview,
+  .features {
     button {
       @include button($text-small, white);
       color: $clr-accent-1;
       padding-left: 0.25rem;
-      padding-top: 0.5rem;
+      padding-top: 0;
       font-weight: 600;
       align-items: center;
       max-width: max-content;
@@ -149,6 +152,11 @@
       }
     }
   }
+
+  .overview button {
+    padding-left: 0;
+  }
+
   .info-body {
     height: 39.5rem;
     overflow-y: auto;
