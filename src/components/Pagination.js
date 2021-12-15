@@ -12,6 +12,7 @@ function Pagination() {
 
   const pagination = [];
   const pageIndeces = pages.map((page, i) => i);
+
   while (pageIndeces.length) {
     pagination.push(pageIndeces.splice(0, 5));
   }
