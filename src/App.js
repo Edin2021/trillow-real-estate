@@ -8,18 +8,17 @@ import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
-    <></>
-//     <Router>
-//       <Fragment>
-//         <ScrollToTop />
-//         <Switch>
-//           <Route exact path="/" component={Homepage} />
-//           <Route path={["/homes/:for", "/homes"]} component={Homes} />
-//           <Route path="/renters" component={Renters} />
-//           <Route path="*" component={Error} />
-//         </Switch>
-//       </Fragment>
-//     </Router>
+    <Router>
+      <Fragment>
+        <ScrollToTop />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route path={["/homes/:for", "/homes"]} component={Homes} />
+          <Route path="/renters" component={Renters} />
+          <Route path="*" component={Error} />
+        </Switch>
+      </Fragment>
+    </Router>
   );
 }
 
