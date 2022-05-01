@@ -11,7 +11,7 @@ export default {
     const { realEstateFor, stateCode, city, beds, baths, priceMin, priceMax } =
       params;
 
-    const endpoint = `https://realty-in-us.p.rapidapi.com/properties/v2/${realEstateFor}?state_code=${stateCode}&city=${city}&limit=500&offset=0${
+    const endpoint = `https://realty-in-us.p.rapidapi.com/properties/v2/${realEstateFor}?state_code=${stateCode}&city=${city}&limit=200&offset=0${
       beds ? `&beds_min=${beds}` : ""
     }${baths ? `&baths_min=${baths}` : ""}${
       priceMin ? `&price_min=${priceMin}` : ""
@@ -19,6 +19,7 @@ export default {
 
     return await fetch(endpoint, fetchOptions);
   },
+
   fetchSingleListing: async (id) => {
     const endpoint = `https://realty-in-us.p.rapidapi.com/properties/v2/detail?property_id=${id}`;
 

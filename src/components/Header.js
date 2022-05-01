@@ -17,18 +17,16 @@ function Header() {
             <Logo />
           </div>
           <nav>
-            <Link to="/homes/for-sale">Buy a Home</Link>
             <Logo />
-            <Link to="/homes/for-rent">Rent a Home</Link>
             <button className="close-menu-btn" onClick={closeMenu}>
               <span className="visually-hidden">close menu</span>
               <IoCloseOutline aria-hidden="true" />
             </button>
           </nav>
-          <button className="menu-btn" onClick={toggleMenu}>
+          {/* <button className="menu-btn" onClick={toggleMenu}>
             <span className="visually-hidden">menu button</span>
             <FaBars aria-hidden="true" />
-          </button>
+          </button> */}
           <div className="bcg-blur" onClick={closeMenu}></div>
         </div>
       </header>

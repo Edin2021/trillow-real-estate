@@ -7,9 +7,22 @@ import Pagination from "../components/Pagination";
 import SingleListing from "../components/SingleListing/SingleListing";
 import { useGlobalContext } from "../context";
 import noResultsImg from "../images/illustrations/no-results-2.png";
+import { useEffect } from "react";
 
 function Homes() {
-  const { listings, loadingListings, error } = useGlobalContext();
+  const { fetchListings, listings, loadingListings, error } =
+    useGlobalContext();
+
+  useEffect(() => {
+    if (listings.length < 1) {
+      const params = {
+        realEstateFor: "list-for-sale",
+        stateCode: "NY",
+        city: "New York City",
+      };
+      fetchListings(params);
+    }
+  }, []);
 
   return (
     <>
